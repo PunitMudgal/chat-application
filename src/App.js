@@ -1,10 +1,18 @@
-import './App.css';
+import "./App.css";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import { Route, Routes } from "react-router-dom"
 
 function App() {
   return (
-  <>
-  <h1>Hey man what's upp</h1>
-  </>
+    <>
+    <Routes>
+      <Route path='/home' element={<Home />} />
+     <Route path="/signup" element={ <Signup />} />
+     <Route path="/login" element={<Login />} />
+      </Routes>
+    </>
   );
 }
 

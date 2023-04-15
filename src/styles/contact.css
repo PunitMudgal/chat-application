@@ -1,0 +1,30 @@
+.contact{
+    font-family: var(--font-para3);
+}
+
+.contact-card{
+    display: flex;
+    align-items: center;
+    margin: 10px 5px 3px;
+    padding: 5px;
+    border-radius: 8px;
+    gap: 7px;
+}
+
+ .contact-card:hover{
+    background-color:#9069e4a0;
+}
+
+.contact-card img{
+    height: 45px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+ .contact-card-userName p:first-child{
+    font-size: 18px;
+}
+.contact-card-userName p:last-child{
+    font-size: 14px;
+    color: rgb(66, 66, 66);
+}
