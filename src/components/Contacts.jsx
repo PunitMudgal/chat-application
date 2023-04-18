@@ -9,21 +9,21 @@ export default function Contacts() {
         <img src={avatar} alt="avatar" />
         <div className='contact-card-userName'>
           <p>Punit Sharma</p>
-          <p>Hello punit, what's up</p>
+          <p>JAI BAJRANG BALI</p>
         </div>
       </div>
       <div className="contact-card">
         <img src={avatar} alt="avatar" />
         <div className='contact-card-userName'>
-          <p>Khushi Sharma</p>
-          <p>Hello khushi, what's up</p>
+          <p>RAM</p>
+          <p>JAI SHRI RAM</p>
         </div>
       </div>
       <div className="contact-card">
         <img src={avatar} alt="avatar" />
         <div className='contact-card-userName'>
-          <p>dont know Sharma</p>
-          <p>Hello man, what's up</p>
+          <p>SHYAM</p>
+          <p>JAI SHRI SHYAM</p>
         </div>
       </div>
     </div>

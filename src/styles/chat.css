@@ -1,0 +1,25 @@
+.chat{
+    flex: 2;
+    background-color: var(--color-light);
+    font-family: var(--font-para3);
+}
+
+.chatInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-medium);
+    height: 13%;
+    padding: 0 1rem;
+    color: white;
+}
+
+.chatInfo span{
+    font-size: 18px;
+}
+
+.chatInfo-icons{
+    display: flex;
+    gap: 1rem;
+
+}

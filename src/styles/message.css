@@ -1,0 +1,76 @@
+.messages{
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    height: 75%;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* hide scrollbar for chrome, opera */
+.messages::-webkit-scrollbar {
+    display: none;
+  }
+
+.message{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    gap: 20px;
+    font-size: 12;
+}
+.message-user-info{
+    display: flex;
+    flex-direction: column;
+    gap: 3px
+}
+
+.message-user-info img{
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.message-user-info span{
+    display: inline;
+    font-size: 13px;
+    color: gray;
+    text-align: center;
+}
+
+.message-content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.message-content p{
+    padding: 10px 15px;
+    background-color: aquamarine;
+    border-radius: 2px 20px 20px 20px;
+    max-width: 80%;
+    min-width: max-content;
+}
+
+.message-content img{
+    width: 260px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.message.sender{
+    flex-direction: row-reverse;
+}
+
+.message.sender .message-content{
+    align-items: flex-end;
+}
+
+.message.sender .message-content p{
+
+    background-color: darkcyan;
+    color: white;
+    border-radius: 20px 2px 20px 20px;
+}

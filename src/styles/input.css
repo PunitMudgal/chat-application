@@ -1,0 +1,32 @@
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    height: 12%;
+    padding: 10px;
+}
+
+.input input{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding: 12px;
+    width: 60%;
+}
+
+.input-attachments{
+    display: flex;
+    align-items: center;
+    color: gray;
+    gap: 9px;
+}
+
+/* .input-send-btn{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid green;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(10, 138, 10, 0.692);
+} */

@@ -9,6 +9,7 @@
     padding: 5px;
     border-radius: 8px;
     gap: 7px;
+    cursor: pointer;
 }
 
  .contact-card:hover{
