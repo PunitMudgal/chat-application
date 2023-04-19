@@ -4,13 +4,14 @@ import {
   createContext,
   useContext,
 } from "react";
-import { auth, db } from "../firebase";
+import { auth,} from "../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+
 
 const AuthContext = createContext();
 

@@ -14,42 +14,51 @@ export default function Signup() {
   const { signUp, user } = AuthUser();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    const name = event.target[0].value;
+    const displayName = event.target[0].value;
     const email = event.target[1].value;
     const password = event.target[2].value;
-    const profilePhoto = event.target[3].value;
+    const profilePhoto = event.target[3].files[0];
     console.log(email, password);
  
     try {
       setErr("");
-      signUp(email, password);
+      await signUp(email, password);
       //photo upload to the storage
-      const storageRef = ref(storage, name);
+      const storageRef = ref(storage, displayName);
       const uploadTask = uploadBytesResumable(storageRef, profilePhoto);
-
-      uploadTask.on(
-        (error) => {
-          setErr(true);
-          console.log(error)
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            // console.log("file available at", downloadURL);
-            await updateProfile(user,{
-              displayName: name,
-              photoURL: downloadURL,
-            });
             await setDoc(doc(db, "users", user.uid), {
               uid: user.uid,
-              displayName: name,
+              displayName,
               email,
-              photoURL: downloadURL,
-            })
-          });
-        }
-      );
+              photoURL: profilePhoto,
+            }) 
+
+      // uploadTask.on(
+      //   (error) => {
+      //     setErr(true);
+      //     console.log(error)
+      //   },
+      //   () => {
+      //     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+      //       // console.log("file available at", downloadURL);
+      //       await updateProfile(user,{
+      //         displayName,
+      //         photoURL: downloadURL,
+      //       });
+      //       await setDoc(doc(db, "users", user.uid), {
+      //         uid: user.uid,
+      //         displayName,
+      //         email,
+      //         photoURL: downloadURL,
+      //       }) 
+      //       await setDoc(doc(db, "userChat", user.uid), {
+      //         savedChats: []
+      //       })
+      //     });
+      //   }
+      // );
       navigate("/home");
     } catch (error) {
       setErr(true);
@@ -73,7 +82,7 @@ export default function Signup() {
             name="password"
             required
           />
-          <input type="file" />
+          <input type="file" style={{display: "none"}} name="file" id="file" />
           <label htmlFor="file">
             <img src={photo} alt="input-file" />
             Add Avatar

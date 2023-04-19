@@ -24,8 +24,8 @@ export default function Navbar() {
       <div className='navbar-content'>
         <p>That's App</p>
         <div className='navbar-userDetails'>
-          <img src={avatar} alt="avatar" />
-          <p>Punit Sharma</p>
+          <img src={user.photoURL} alt="avatar" />
+          <p>{user.displayName}</p>
           <button onClick={handleLogout}>Logout</button>
         </div>
       </div>
