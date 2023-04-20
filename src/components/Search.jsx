@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import "../styles/search.css";
 import { query, collection, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import { IoClose } from "react-icons/io5";
 
 function Search() {
   const [userName, setUserName] = useState("");
@@ -40,7 +41,10 @@ function Search() {
           onChange={(e) => setUserName(e.target.value)}
           placeholder="Search User"
         />
-        <FaSearch size={25} />
+        {searchedUser && (
+          <IoClose onClick={() => setSearchedUser(null)} size={25} />
+        )}
+        {!searchedUser && <FaSearch size={25} onClick={handleSearch} />}
       </div>
       {error && <p>user not found!</p>}
       {searchedUser && (
