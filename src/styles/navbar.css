@@ -24,8 +24,9 @@
 }
 
 .navbar-userDetails img{
-   height: 30px; 
-   border-radius: 100%;
+   border-radius: 15rem;
+   width: 35px; 
+   height: 30px;
    object-fit: cover;
 }
 

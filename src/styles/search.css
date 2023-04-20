@@ -11,13 +11,13 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom: 1px solid rgba(48, 48, 48, 0.836);
+    /* border-bottom: 1px solid rgba(48, 48, 48, 0.836); */
     padding: 5px;
 }
 .search-form input{
     background-color: transparent;
     border:none;
-
+    outline: none;
     font-size: 20px;
 }
 
@@ -40,9 +40,10 @@
 }
 
 .search-result img{
-    height: 45px;
+    height: 55px;
+    width: 57px;
     border-radius: 100%;
-    object-fit: cover;
+    object-fit:cover;
 }
 
 .search-result-userName p{

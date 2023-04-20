@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from '../images/user.jpg'
+// import avatar from '../images/user.jpg'
 import { AuthUser } from '../context/AuthContext';
 import '../styles/navbar.css';
 import { useNavigate } from 'react-router-dom';
