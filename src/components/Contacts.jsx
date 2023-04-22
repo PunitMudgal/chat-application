@@ -1,31 +1,44 @@
-import React from 'react'
-import avatar from '../images/user.jpg'
-import '../styles/contact.css'
+import React, { useEffect, useState } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import "../styles/contact.css";
+import { AuthUser } from "../context/AuthContext";
+import { db } from "../firebase";
+import {ChatContextUser} from '../context/ChatContext'
 
 export default function Contacts() {
+  const [contacts, setContacts] = useState([]);
+  const { user } = AuthUser();
+  const {dispatch} = ChatContextUser()
+
+  useEffect(() => {
+    const getContacts = () => {
+      const unsub = onSnapshot(doc(db, "userChats", user.uid), (doc) => {
+        setContacts(doc.data());
+      });
+      return () => {
+        unsub();
+      };
+    };
+    user.uid && getContacts();
+  }, [user.uid]);
+
+  const handleSelect = (u) => {
+    dispatch({ type: "CHANGE_USER", payload: u });
+  };
+
   return (
-    <div className='contact'>
-       <div className="contact-card">
-        <img src={avatar} alt="avatar" />
-        <div className='contact-card-userName'>
-          <p>Punit Sharma</p>
-          <p>JAI BAJRANG BALI</p>
-        </div>
-      </div>
-      <div className="contact-card">
-        <img src={avatar} alt="avatar" />
-        <div className='contact-card-userName'>
-          <p>RAM</p>
-          <p>JAI SHRI RAM</p>
-        </div>
-      </div>
-      <div className="contact-card">
-        <img src={avatar} alt="avatar" />
-        <div className='contact-card-userName'>
-          <p>SHYAM</p>
-          <p>JAI SHRI SHYAM</p>
-        </div>
-      </div>
+    <div className="contact">
+      {Object.entries(contacts)
+        ?.sort((a, b) => b[1].date - a[1].date)
+        .map((chat) => (
+          <div className="contact-card" key={chat[0]} onClick={() => handleSelect(chat[1].userInfo)}>
+            <img src={chat[1].userInfo.photoURL} alt="avatar" />
+            <div className="contact-card-userName">
+              <p>{chat[1].userInfo.displayName}</p>
+              <p>{chat[1].lastMessage?.text}</p>
+            </div>
+          </div>
+        ))}
     </div>
-  )
+  );
 }

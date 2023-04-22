@@ -43,18 +43,16 @@ console.log('response--', response)
               displayName,
               photoURL: downloadURL,
             });
-            await setDoc(doc(db, "users", response.user.email), {
+            await setDoc(doc(db, "users", response.user.uid), {
               uid: response.user.uid,
               displayName,
               email,
               photoURL: downloadURL,
             });
-            await setDoc(doc(db, "userChat", response.user.email), {
+            await setDoc(doc(db, "userChat", response.user.uid), {
               savedChats: [],
             });
           });
-          // console.log(user.email);
-          // console.log(user.displayName)
         }
       );
 
